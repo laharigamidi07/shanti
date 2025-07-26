@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shanti Gold Jewelry Homepage</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .navbar {
+      background-color: #fff8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #b99064;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #333;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #b99064;
+    }
+
+    .hero {
+      background-size: cover;
+      background-position: center;
+      color: white;
+      height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      transition: background-image 1s ease-in-out;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+    }
+
+    .btn {
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #b99064;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .collections,
+    .about,
+    .services {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .collections h2,
+    .about h2,
+    .services h2 {
+      margin-bottom: 2rem;
+      color: #b99064;
+    }
+
+    .collection-grid {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      width: 250px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      background-color: white;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .card h3 {
+      padding: 1rem;
+      color: #333;
+    }
+
+    .services ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .services li {
+      padding: 0.5rem 0;
+    }
+
+    footer {
+      background-color: #f5f5f5;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #b99064;
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Smooth scroll
+      const navLinks = document.querySelectorAll('nav ul li a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const target = document.querySelector(link.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+
+      // Change hero background image every 2 seconds
+      const heroSection = document.querySelector('.hero');
+      const bgImages = [
+        'https://wallpaperbat.com/img/601164-gold-jewellery-wallpaper-1920x1080-download-hd-wallpaper.jpg',
+        'https://tse2.mm.bing.net/th/id/OIP.SlzlTvjIALWMMI-cDZ2VVQHaDt?pid=Api&P=0&h=180',
+        'https://tse4.mm.bing.net/th/id/OIP.yVOXgkpxYJBZ3BVjfBdhHgHaEJ?pid=Api&P=0&h=180',
+        'https://tse3.mm.bing.net/th/id/OIP.xRQgOb0CwJYzLbCzmC_QXwHaEJ?pid=Api&P=0&h=180'
+      ];
+      let current = 0;
+
+      function updateHeroBackground() {
+        heroSection.style.backgroundImage = `url('${bgImages[current]}')`;
+        current = (current + 1) % bgImages.length;
+      }
+
+      // Initial background image
+      updateHeroBackground();
+      // Change every 2 seconds
+      setInterval(updateHeroBackground, 2000);
+    });
+  </script>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="logo">Shanti Gold</div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Banner -->
+  <section id="home" class="hero">
+    <div class="hero-text">
+      <h1>Discover Timeless Elegance</h1>
+      <p>Jewelry that tells your story.</p>
+      <a href="#collections" class="btn">Explore Collections</a>
+    </div>
+  </section>
+
+  <!-- Collections Section -->
+  <section id="collections" class="collections">
+    <h2>Our Collections</h2>
+    <div class="collection-grid">
+      <div class="card">
+        <img src="img/bridal.jpg" alt="Bridal Collection" />
+        <h3>Bridal</h3>
+      </div>
+      <div class="card">
+        <img src="img/luxury.jpg" alt="Luxury Collection" />
+        <h3>Luxury</h3>
+      </div>
+      <div class="card">
+        <img src="img/everyday.jpg" alt="Everyday Collection" />
+        <h3>Everyday</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>
+      Shanti Gold has been crafting exquisite jewelry that celebrates
+      tradition, elegance, and innovation.
+    </p>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <h2>Our Services</h2>
+    <ul>
+      <li>Custom Design</li>
+      <li>Jewelry Repair</li>
+      <li>Gold Exchange</li>
+      <li>Valuation & Purity Check</li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <p>&copy; 2025 Shanti Gold. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">WhatsApp</a>
+    </div>
+  </footer>
+</body>
+</html>
